@@ -1,38 +1,41 @@
 <template>
-      <div class="nav">
-        <nuxt-link to="/" class="brand">Real World Events</nuxt-link>
-        <nav>
-          <nuxt-link to="/">List</nuxt-link>&nbsp;|
-          <nuxt-link to="/create">Create</nuxt-link>
-        </nav>
-      </div>
-    </template>
-    
-    <style scoped>
-    .brand {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.5em;
-      color: #39b982;
-      text-decoration: none;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 60px;
-    }
-    .nav .nav-item {
-      box-sizing: border-box;
-      margin: 0 5px;
-      color: rgba(0, 0, 0, 0.5);
-      text-decoration: none;
-    }
-    .nav .nav-item.router-link-exact-active {
-      color: #39b982;
-      border-bottom: solid 2px #39b982;
-    }
-    .nav a {
-      display: inline-block;
-    }
-    </style>
+    <b-navbar>
+        <template slot="brand">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                <img
+                    src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
+                    alt="Lightweight UI components for Vue.js based on Bulma"
+                >
+            </b-navbar-item>
+        </template>
+        <template slot="start">
+            <b-navbar-item href="#">
+                Home
+            </b-navbar-item>
+            <b-navbar-item href="#">
+                Documentation
+            </b-navbar-item>
+            <b-navbar-dropdown label="Info">
+                <b-navbar-item href="#">
+                    About
+                </b-navbar-item>
+                <b-navbar-item href="#">
+                    Contact
+                </b-navbar-item>
+            </b-navbar-dropdown>
+        </template>
+
+        <template slot="end">
+            <b-navbar-item tag="div">
+                <div class="buttons">
+                    <a class="button is-primary">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                        Log in
+                    </a>
+                </div>
+            </b-navbar-item>
+        </template>
+    </b-navbar>
+</template>
